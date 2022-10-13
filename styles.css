@@ -41,7 +41,7 @@ input[type="checkbox"].food {
   width: 20%;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
-  transform: translateX(-60%);
+  transform: translateX(-50%);
 }
 
 h1 {
