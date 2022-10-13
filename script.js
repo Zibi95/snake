@@ -7,6 +7,8 @@ let food;
 let snakeDirection;
 let theGame;
 
+createBoard();
+
 function game() {
   gameCheck();
   let [positionX, positionY] = [
@@ -116,19 +118,14 @@ window.addEventListener("keyup", function (e) {
 });
 
 function init() {
-  if (!board.hasChildNodes()) {
-    createBoard();
-  }
   clearInterval(theGame);
   theGame = false;
-  if (food) {
-    food.classList.remove("food");
-    food = "";
-  }
+  food?.classList.remove("food");
+  food = "";
   snake = [];
   snakeDirection = numberToDirection(getRandomNumber(0, 4));
   spawnSnake();
   spawnFood();
 }
 
-start.addEventListener("click", () => setTimeout(init, 500));
+start.addEventListener("click", init);
