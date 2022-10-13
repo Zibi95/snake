@@ -1,13 +1,11 @@
 "use strict";
 const board = document.querySelector(".board");
 const score = document.querySelector("h1");
-const reset = document.querySelector("a");
+const start = document.querySelector("a");
 let snake = [];
 let food;
 let snakeDirection;
 let theGame;
-
-init();
 
 function game() {
   gameCheck();
@@ -118,8 +116,8 @@ window.addEventListener("keyup", function (e) {
 function init() {
   if (!board.hasChildNodes()) {
     createBoard();
-    clearInterval(theGame);
   }
+  clearInterval(theGame);
   if (food) {
     food.classList.remove("food");
     food = "";
@@ -130,4 +128,5 @@ function init() {
   spawnFood();
   theGame = setInterval(game, 200);
 }
-reset.addEventListener("click", init);
+
+start.addEventListener("click", () => setTimeout(init, 500));
