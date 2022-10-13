@@ -64,6 +64,7 @@ function spawnSnake() {
     const snakeEl = selector(positionX, positionY);
 
     snake.push(snakeEl);
+    snakeCheck();
   }
 }
 
@@ -104,6 +105,7 @@ function selector(x, y) {
 }
 
 window.addEventListener("keyup", function (e) {
+  if (!theGame) theGame = setInterval(game, 200);
   e.preventDefault();
   if (e.key == "ArrowDown" && snakeDirection != "up") snakeDirection = "down";
   if (e.key == "ArrowUp" && snakeDirection != "down") snakeDirection = "up";
@@ -118,6 +120,7 @@ function init() {
     createBoard();
   }
   clearInterval(theGame);
+  theGame = false;
   if (food) {
     food.classList.remove("food");
     food = "";
@@ -126,7 +129,6 @@ function init() {
   snakeDirection = numberToDirection(getRandomNumber(0, 4));
   spawnSnake();
   spawnFood();
-  theGame = setInterval(game, 200);
 }
 
 start.addEventListener("click", () => setTimeout(init, 500));
