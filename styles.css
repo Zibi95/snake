@@ -10,13 +10,10 @@ body {
   justify-content: center;
   align-items: center;
   background: rgb(232, 227, 70);
-  background: radial-gradient(
-    circle,
-    rgba(232, 227, 70, 1) 49%,
-    rgba(88, 91, 156, 1) 71%
-  );
+  background: radial-gradient(circle, rgba(232, 227, 70, 1) 49%, rgba(88, 91, 156, 1) 71%);
 }
-input[type="checkbox"] {
+
+input[type='checkbox'] {
   appearance: none;
   font: inherit;
   width: 2.3rem;
@@ -26,18 +23,20 @@ input[type="checkbox"] {
   background-color: rgb(0, 0, 0);
 }
 
-input[type="checkbox"]:checked {
-  background-image: url("js.png");
+input[type='checkbox']:checked {
+  z-index: 1;
+  background-image: url('js.png');
   background-size: contain;
   scale: 1.05;
 }
 
-input[type="checkbox"].food {
-  background-image: url("python.png");
+input[type='checkbox'].food {
+  background-image: url('python.png');
   background-size: contain;
 }
 
 .board {
+  margin-top: 100px;
   width: 20%;
   display: grid;
   grid-template-columns: repeat(20, 1fr);
@@ -60,7 +59,7 @@ a {
 a::after,
 a::before {
   border: 3px solid #000;
-  content: "";
+  content: '';
   position: absolute;
   width: calc(100% - 6px);
   height: calc(100% - 6px);
@@ -76,4 +75,7 @@ a:hover::after {
 
 a:hover::before {
   transform: translate(5px, 5px);
+}
+
+.food {
 }
